@@ -91,10 +91,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DBContext.cs" />
     <Compile Include="Data\DoorDAO.cs" />
     <Compile Include="Data\IDoorDAO.cs" />
-    <Compile Include="DoorContext.cs" />
+    <Compile Include="EF\DoorContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -104,7 +103,7 @@
     </Compile>
     <Compile Include="IDoorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WindsorInstaller.cs" />
+    <Compile Include="DI\WindsorInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,7 @@ using Castle.Windsor;
 using EverbridgeWCF.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +13,8 @@ namespace EverbridgeWCF {
         public void Install(IWindsorContainer container, IConfigurationStore store) {
             container.Register(
                 Component.For<IDoorService, DoorService>(),
-                Component.For<IDoorDAO, DoorDAO>());
+                Component.For<IDoorDAO, DoorDAO>(),
+                Component.For<DoorContext>().LifestylePerThread());
         }
     }
 }

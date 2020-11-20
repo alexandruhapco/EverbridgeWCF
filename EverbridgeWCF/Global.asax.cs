@@ -2,6 +2,7 @@
 using Castle.Windsor;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -15,7 +16,9 @@ namespace EverbridgeWCF {
         protected void Application_Start(object sender, EventArgs e) {
             container = new WindsorContainer();
             container.AddFacility<WcfFacility>();
-            container.Install(new WindsorInstaller()); 
+            container.Install(new WindsorInstaller());
+
+            Database.SetInitializer(new DoorDBInitializer());
         }
   
     }

@@ -1,43 +1,42 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace EverbridgeWCF.Data {
     class DoorDAO : IDoorDAO{
 
+        private readonly DoorContext db;
+
+        public DoorDAO(DoorContext db) {
+            this.db = db;
+        }
+
         public List<Door> getAll() {
-            return DBContext.doorsList;
+            return db.doors.ToList();
         }
 
         public void insert(Door door) {
-            DBContext.doorsList.Add(door);
+            db.doors.Add(door);
+            db.SaveChanges();
         }
 
         public void delete(long id) {
-            DBContext.doorsList.RemoveAll(x => x.id == id);
+            db.doors.RemoveRange(db.doors.Where(x => x.id == id));
+            db.SaveChanges();
         }
 
         public void update(Door door) {
-            //with EF this should work
-
-            //var result = DBContext.doorsList.SingleOrDefault(x => x.id == door.id);
-            //if (result != null) {
-            //    result.isLocked = door.isLocked;
-            //    result.isOpen = door.isOpen;
-            //    result.label = door.label;
-            //}
-
-            foreach (Door d in DBContext.doorsList) {
-                if (d.id == door.id) {
-                    d.isLocked = door.isLocked;
-                    d.isOpen = door.isOpen;
-                    d.label = door.label;
-                    break;
-                }
+            var result = db.doors.SingleOrDefault(x => x.id == door.id);
+            if (result != null) {
+                result.isLocked = door.isLocked;
+                result.isOpen = door.isOpen;
+                result.label = door.label;
             }
+            db.SaveChanges();
         }
 
         public Door getDoor(long id) {
-            return DBContext.doorsList.SingleOrDefault(x => x.id == id);
+            return db.doors.SingleOrDefault(x => x.id == id);
         }
     }
 }
