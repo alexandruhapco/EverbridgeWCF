@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace EverbridgeWCF {
     [ServiceContract]
     public interface IDoorService {
 
         [OperationContract]
-        bool addNewDoor(Door door);
+        bool addNewDoor(string label);
         [OperationContract]
         bool closeDoor(long id);
         [OperationContract]

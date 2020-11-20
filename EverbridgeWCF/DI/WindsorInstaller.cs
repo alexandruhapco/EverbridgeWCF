@@ -2,11 +2,6 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using EverbridgeWCF.Data;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace EverbridgeWCF {
     public class WindsorInstaller : IWindsorInstaller {

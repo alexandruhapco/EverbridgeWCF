@@ -9,9 +9,9 @@ namespace EverbridgeWCF {
         public DoorService(IDoorDAO doorDAO) {
             this.doorDAO = doorDAO ?? throw new ArgumentNullException(nameof(doorDAO));
         }
-
+        
         //Then I would like a list of all the doors at the facility.
-        public List<Door> getAllDoors() {
+        public List<Door> getAllDoors() {            
             return doorDAO.getAll();
         }
 
@@ -29,9 +29,9 @@ namespace EverbridgeWCF {
         }
 
         //Then I would like to be able to Add a new door
-        public bool addNewDoor(Door door) {
+        public bool addNewDoor(string label) {
             try {
-                doorDAO.insert(door);
+                doorDAO.insert(new Door() { label = label});
                 return true;
             } catch (Exception) {
                 throw;

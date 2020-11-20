@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 
 namespace EverbridgeWCF {
     public class DoorContext : DbContext {
