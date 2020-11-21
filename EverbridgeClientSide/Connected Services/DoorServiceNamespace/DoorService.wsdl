@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DoorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50071/DoorService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50071/DoorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50071/DoorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EverbridgeWCF" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDoorService_addNewDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:addNewDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_addNewDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addNewDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_closeDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:closeDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_closeDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:closeDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getAllDoors_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDoors" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getAllDoors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDoorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_lockDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:lockDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_lockDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:lockDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_openDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:openDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_openDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:openDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_removeDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_removeDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_unlockDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:unlockDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_unlockDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:unlockDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_updateDoorLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateDoorLabel" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_updateDoorLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateDoorLabelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDoorService">
+    <wsdl:operation name="addNewDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/addNewDoor" message="tns:IDoorService_addNewDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/addNewDoorResponse" message="tns:IDoorService_addNewDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="closeDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/closeDoor" message="tns:IDoorService_closeDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/closeDoorResponse" message="tns:IDoorService_closeDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDoors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/getAllDoors" message="tns:IDoorService_getAllDoors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/getAllDoorsResponse" message="tns:IDoorService_getAllDoors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/getDoor" message="tns:IDoorService_getDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/getDoorResponse" message="tns:IDoorService_getDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="lockDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/lockDoor" message="tns:IDoorService_lockDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/lockDoorResponse" message="tns:IDoorService_lockDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="openDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/openDoor" message="tns:IDoorService_openDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/openDoorResponse" message="tns:IDoorService_openDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/removeDoor" message="tns:IDoorService_removeDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/removeDoorResponse" message="tns:IDoorService_removeDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="unlockDoor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/unlockDoor" message="tns:IDoorService_unlockDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/unlockDoorResponse" message="tns:IDoorService_unlockDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateDoorLabel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDoorService/updateDoorLabel" message="tns:IDoorService_updateDoorLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDoorService/updateDoorLabelResponse" message="tns:IDoorService_updateDoorLabel_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDoorService" type="tns:IDoorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addNewDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/addNewDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/closeDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDoors">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/getAllDoors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/getDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lockDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/lockDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/openDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/removeDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unlockDoor">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/unlockDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDoorLabel">
+      <soap:operation soapAction="http://tempuri.org/IDoorService/updateDoorLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DoorService">
+    <wsdl:port name="BasicHttpBinding_IDoorService" binding="tns:BasicHttpBinding_IDoorService">
+      <soap:address location="http://localhost:50071/DoorService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
