@@ -22,6 +22,6 @@ namespace EverbridgeWCF {
         [OperationContract]
         bool unlockDoor(long id);
         [OperationContract]
-        void updateDoorLabel(long id, string label);       
+        bool updateDoorLabel(long id, string label);       
     }
 }

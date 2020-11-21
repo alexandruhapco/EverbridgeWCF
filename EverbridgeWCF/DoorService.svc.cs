@@ -16,10 +16,11 @@ namespace EverbridgeWCF {
         }
 
         //Then I would expect each door to have a customisable label to provide user friendly reference to an individual door
-        public void updateDoorLabel(long id, string label) {
+        public bool updateDoorLabel(long id, string label) {
             var door = doorDAO.getDoor(id);
             door.label = label;
             doorDAO.update(door);
+            return true;
         }
 
         //And I would like to know whether door is Open or Closed

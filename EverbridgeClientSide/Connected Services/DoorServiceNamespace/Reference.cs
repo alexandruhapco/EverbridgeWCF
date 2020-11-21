@@ -95,7 +95,11 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
                 }
             }
         }
-        
+
+        public override string ToString() {
+            return $"id:{id}\tisLocked:{isLocked}\tisOpen:{isOpen}\tlabel:{label}";
+        }
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -159,10 +163,10 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
         System.Threading.Tasks.Task<bool> unlockDoorAsync(long id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/updateDoorLabel", ReplyAction="http://tempuri.org/IDoorService/updateDoorLabelResponse")]
-        void updateDoorLabel(long id, string label);
+        bool updateDoorLabel(long id, string label);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/updateDoorLabel", ReplyAction="http://tempuri.org/IDoorService/updateDoorLabelResponse")]
-        System.Threading.Tasks.Task updateDoorLabelAsync(long id, string label);
+        System.Threading.Tasks.Task<bool> updateDoorLabelAsync(long id, string label);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -256,11 +260,11 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
             return base.Channel.unlockDoorAsync(id);
         }
         
-        public void updateDoorLabel(long id, string label) {
-            base.Channel.updateDoorLabel(id, label);
+        public bool updateDoorLabel(long id, string label) {
+            return base.Channel.updateDoorLabel(id, label);
         }
         
-        public System.Threading.Tasks.Task updateDoorLabelAsync(long id, string label) {
+        public System.Threading.Tasks.Task<bool> updateDoorLabelAsync(long id, string label) {
             return base.Channel.updateDoorLabelAsync(id, label);
         }
     }
