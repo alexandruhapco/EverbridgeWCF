@@ -14,24 +14,24 @@ namespace EverbridgeWCF.Data {
             return db.doors.ToList();
         }
 
-        public void insert(Door door) {
+        public async void insert(Door door) {
             db.doors.Add(door);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
         }
 
-        public void delete(long id) {
+        public async void delete(long id) {
             db.doors.RemoveRange(db.doors.Where(x => x.id == id));
-            db.SaveChanges();
+            await db.SaveChangesAsync();
         }
 
-        public void update(Door door) {
+        public async void update(Door door) {
             var result = db.doors.SingleOrDefault(x => x.id == door.id);
             if (result != null) {
                 result.isLocked = door.isLocked;
                 result.isOpen = door.isOpen;
                 result.label = door.label;
             }
-            db.SaveChanges();
+            await db.SaveChangesAsync();
         }
 
         public Door getDoor(long id) {

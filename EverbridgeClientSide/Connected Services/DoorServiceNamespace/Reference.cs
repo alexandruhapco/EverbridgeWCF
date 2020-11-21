@@ -95,11 +95,7 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
                 }
             }
         }
-
-        public override string ToString() {
-            return $"id:{id}\tisLocked:{isLocked}\tisOpen:{isOpen}\tlabel:{label}";
-        }
-
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {

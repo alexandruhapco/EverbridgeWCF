@@ -7,7 +7,7 @@ namespace EverbridgeWCF {
         private IDoorDAO doorDAO;
 
         public DoorService(IDoorDAO doorDAO) {
-            this.doorDAO = doorDAO ?? throw new ArgumentNullException(nameof(doorDAO));
+            this.doorDAO = doorDAO ?? throw new ArgumentNullException(nameof(doorDAO));            
         }
         
         //Then I would like a list of all the doors at the facility.
