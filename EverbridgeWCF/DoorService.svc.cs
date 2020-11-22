@@ -1,13 +1,22 @@
 ﻿using EverbridgeWCF.Data;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace EverbridgeWCF {
+
+    // Service class which implements a duplex service contract.
+    // Use an InstanceContextMode of PerSession to store the result
+    // An instance of the service will be bound to each duplex session
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class DoorService : IDoorService {
         private IDoorDAO doorDAO;
 
+        IDoorNotificationCallback callback = null;
+
         public DoorService(IDoorDAO doorDAO) {
-            this.doorDAO = doorDAO ?? throw new ArgumentNullException(nameof(doorDAO));            
+            this.doorDAO = doorDAO ?? throw new ArgumentNullException(nameof(doorDAO));
+            callback = OperationContext.Current.GetCallbackChannel<IDoorNotificationCallback>();
         }
         
         //Then I would like a list of all the doors at the facility.

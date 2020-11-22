@@ -107,7 +107,7 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoorServiceNamespace.IDoorService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoorServiceNamespace.IDoorService", CallbackContract=typeof(EverbridgeClientSide.DoorServiceNamespace.IDoorServiceCallback))]
     public interface IDoorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/addNewDoor", ReplyAction="http://tempuri.org/IDoorService/addNewDoorResponse")]
@@ -166,30 +166,38 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IDoorServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDoorService/notifyUserOnChange")]
+        void notifyUserOnChange();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IDoorServiceChannel : EverbridgeClientSide.DoorServiceNamespace.IDoorService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DoorServiceClient : System.ServiceModel.ClientBase<EverbridgeClientSide.DoorServiceNamespace.IDoorService>, EverbridgeClientSide.DoorServiceNamespace.IDoorService {
+    public partial class DoorServiceClient : System.ServiceModel.DuplexClientBase<EverbridgeClientSide.DoorServiceNamespace.IDoorService>, EverbridgeClientSide.DoorServiceNamespace.IDoorService {
         
-        public DoorServiceClient() {
+        public DoorServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public DoorServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public DoorServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public DoorServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public DoorServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public DoorServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public DoorServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public DoorServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public DoorServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public bool addNewDoor(string label) {

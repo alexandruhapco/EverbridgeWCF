@@ -10,7 +10,7 @@ namespace EverbridgeWCF.Data {
             this.db = db;
         }
 
-        public List<Door> getAll() {
+        public List<Door> getAll() {            
             return db.doors.ToList();
         }
 
