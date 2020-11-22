@@ -2,7 +2,7 @@
 using System.ServiceModel;
 
 namespace EverbridgeWCF {
-    [ServiceContract(CallbackContract = typeof(IDoorNotificationCallback))]
+    [ServiceContract(Namespace = "http://localhost:50071/DoorService.svc", SessionMode = SessionMode.Required, CallbackContract = typeof(IDoorNotificationCallback))]
     public interface IDoorService {
 
         [OperationContract]
@@ -23,11 +23,13 @@ namespace EverbridgeWCF {
         bool unlockDoor(long id);
         [OperationContract]
         bool updateDoorLabel(long id, string label);
+        [OperationContract]
+        void clientRegistration();
     }
 
     //https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-create-a-duplex-contract?redirectedfrom=MSDN
     public interface IDoorNotificationCallback {
         [OperationContract(IsOneWay = true)]
-        void notifyUserOnChange();
+        void notifyUserOnChange(string message);
     }
 }

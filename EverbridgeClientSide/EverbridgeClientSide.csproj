@@ -37,6 +37,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallbackHandler.cs" />
     <Compile Include="Connected Services\DoorServiceNamespace\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -59,6 +61,7 @@
     <None Include="Connected Services\DoorServiceNamespace\DoorService.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\DoorServiceNamespace\DoorService1.wsdl" />
     <None Include="Connected Services\DoorServiceNamespace\DoorService1.xsd">
       <SubType>Designer</SubType>
     </None>

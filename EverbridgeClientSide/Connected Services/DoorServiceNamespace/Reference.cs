@@ -107,69 +107,75 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DoorServiceNamespace.IDoorService", CallbackContract=typeof(EverbridgeClientSide.DoorServiceNamespace.IDoorServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost:50071/DoorService.svc", ConfigurationName="DoorServiceNamespace.IDoorService", CallbackContract=typeof(EverbridgeClientSide.DoorServiceNamespace.IDoorServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IDoorService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/addNewDoor", ReplyAction="http://tempuri.org/IDoorService/addNewDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/addNewDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/addNewDoorResponse")]
         bool addNewDoor(string label);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/addNewDoor", ReplyAction="http://tempuri.org/IDoorService/addNewDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/addNewDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/addNewDoorResponse")]
         System.Threading.Tasks.Task<bool> addNewDoorAsync(string label);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/closeDoor", ReplyAction="http://tempuri.org/IDoorService/closeDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/closeDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/closeDoorResponse")]
         bool closeDoor(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/closeDoor", ReplyAction="http://tempuri.org/IDoorService/closeDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/closeDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/closeDoorResponse")]
         System.Threading.Tasks.Task<bool> closeDoorAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/getAllDoors", ReplyAction="http://tempuri.org/IDoorService/getAllDoorsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/getAllDoors", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/getAllDoorsResponse")]
         EverbridgeClientSide.DoorServiceNamespace.Door[] getAllDoors();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/getAllDoors", ReplyAction="http://tempuri.org/IDoorService/getAllDoorsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/getAllDoors", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/getAllDoorsResponse")]
         System.Threading.Tasks.Task<EverbridgeClientSide.DoorServiceNamespace.Door[]> getAllDoorsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/getDoor", ReplyAction="http://tempuri.org/IDoorService/getDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/getDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/getDoorResponse")]
         EverbridgeClientSide.DoorServiceNamespace.Door getDoor(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/getDoor", ReplyAction="http://tempuri.org/IDoorService/getDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/getDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/getDoorResponse")]
         System.Threading.Tasks.Task<EverbridgeClientSide.DoorServiceNamespace.Door> getDoorAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/lockDoor", ReplyAction="http://tempuri.org/IDoorService/lockDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/lockDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/lockDoorResponse")]
         bool lockDoor(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/lockDoor", ReplyAction="http://tempuri.org/IDoorService/lockDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/lockDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/lockDoorResponse")]
         System.Threading.Tasks.Task<bool> lockDoorAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/openDoor", ReplyAction="http://tempuri.org/IDoorService/openDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/openDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/openDoorResponse")]
         bool openDoor(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/openDoor", ReplyAction="http://tempuri.org/IDoorService/openDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/openDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/openDoorResponse")]
         System.Threading.Tasks.Task<bool> openDoorAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/removeDoor", ReplyAction="http://tempuri.org/IDoorService/removeDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/removeDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/removeDoorResponse")]
         bool removeDoor(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/removeDoor", ReplyAction="http://tempuri.org/IDoorService/removeDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/removeDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/removeDoorResponse")]
         System.Threading.Tasks.Task<bool> removeDoorAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/unlockDoor", ReplyAction="http://tempuri.org/IDoorService/unlockDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/unlockDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/unlockDoorResponse")]
         bool unlockDoor(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/unlockDoor", ReplyAction="http://tempuri.org/IDoorService/unlockDoorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/unlockDoor", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/unlockDoorResponse")]
         System.Threading.Tasks.Task<bool> unlockDoorAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/updateDoorLabel", ReplyAction="http://tempuri.org/IDoorService/updateDoorLabelResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/updateDoorLabel", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/updateDoorLabelResponse")]
         bool updateDoorLabel(long id, string label);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDoorService/updateDoorLabel", ReplyAction="http://tempuri.org/IDoorService/updateDoorLabelResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/updateDoorLabel", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/updateDoorLabelResponse")]
         System.Threading.Tasks.Task<bool> updateDoorLabelAsync(long id, string label);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/clientRegistration", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/clientRegistrationResponse")]
+        void clientRegistration();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:50071/DoorService.svc/IDoorService/clientRegistration", ReplyAction="http://localhost:50071/DoorService.svc/IDoorService/clientRegistrationResponse")]
+        System.Threading.Tasks.Task clientRegistrationAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IDoorServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDoorService/notifyUserOnChange")]
-        void notifyUserOnChange();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://localhost:50071/DoorService.svc/IDoorService/notifyUserOnChange")]
+        void notifyUserOnChange(string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -270,6 +276,14 @@ namespace EverbridgeClientSide.DoorServiceNamespace {
         
         public System.Threading.Tasks.Task<bool> updateDoorLabelAsync(long id, string label) {
             return base.Channel.updateDoorLabelAsync(id, label);
+        }
+        
+        public void clientRegistration() {
+            base.Channel.clientRegistration();
+        }
+        
+        public System.Threading.Tasks.Task clientRegistrationAsync() {
+            return base.Channel.clientRegistrationAsync();
         }
     }
 }

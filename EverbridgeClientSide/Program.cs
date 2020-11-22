@@ -24,10 +24,12 @@ namespace EverbridgeClientSide {
         }
 
         static void Main(string[] args) {
-            IDoorServiceCallback doorServiceCallback = OperationContext.Current.GetCallbackChannel<IDoorServiceCallback>();
-            using (var client = new DoorServiceClient(null) {
-                printInstruction();
-                printAllDoors(client);
+            // Construct InstanceContext to handle messages on callback interface
+            InstanceContext instanceContext = new InstanceContext(new CallbackHandler());
+            var client = new DoorServiceClient(instanceContext);
+            client.clientRegistration();
+            printInstruction();
+            printAllDoors(client);
 
             while (true) {
                 Console.Write("Input: ");
@@ -47,61 +49,61 @@ namespace EverbridgeClientSide {
                     default:
                         break;
                 }
-            }        
+            }
         }
-    
-    private static void changeLable(DoorServiceClient client) {
-        Console.Write("Enter door id: ");
-        if (long.TryParse(Console.ReadLine(), out long id)) {
-            Console.Write("Enter new label: ");
+
+        private static void changeLable(DoorServiceClient client) {
+            Console.Write("Enter door id: ");
+            if (long.TryParse(Console.ReadLine(), out long id)) {
+                Console.Write("Enter new label: ");
+                var label = Console.ReadLine();
+                if (client.updateDoorLabel(id, label)) {
+                    Console.WriteLine("Label was updated");
+                    return;
+                }
+            }
+            Console.WriteLine("Nope");
+        }
+
+        private static void addNewDoor(DoorServiceClient client) {
+            Console.Write("Enter new door label: ");
             var label = Console.ReadLine();
-            if (client.updateDoorLabel(id, label)) {
-                Console.WriteLine("Label was updated");
+            if (client.addNewDoor(label)) {
+                Console.WriteLine("Door was added");
                 return;
             }
+            Console.WriteLine("Nope");
         }
-        Console.WriteLine("Nope");
-    }
 
-    private static void addNewDoor(DoorServiceClient client) {
-        Console.Write("Enter new door label: ");
-        var label = Console.ReadLine();
-        if (client.addNewDoor(label)) {
-            Console.WriteLine("Door was added");
-            return;
+        private static void printAllDoors(DoorServiceClient client) {
+            Console.WriteLine(new String('-', 60));
+            client.getAllDoors().ToList().ForEach(x => Console.WriteLine(x.ToString()));
+            Console.WriteLine(new String('-', 60));
         }
-        Console.WriteLine("Nope");
-    }
 
-    private static void printAllDoors(DoorServiceClient client) {
-        Console.WriteLine(new String('-', 60));
-        client.getAllDoors().ToList().ForEach(x => Console.WriteLine(x.ToString()));
-        Console.WriteLine(new String('-', 60));
-    }
-
-    private static void printDoor(DoorServiceClient client) {
-        Console.Write("Enter door id: ");
-        if (long.TryParse(Console.ReadLine(), out long id)) {
-            var door = client.getDoor(id);
-            if (door != null) {
-                Console.WriteLine(door.ToString());
-                return;
+        private static void printDoor(DoorServiceClient client) {
+            Console.Write("Enter door id: ");
+            if (long.TryParse(Console.ReadLine(), out long id)) {
+                var door = client.getDoor(id);
+                if (door != null) {
+                    Console.WriteLine(door.ToString());
+                    return;
+                }
             }
+            Console.WriteLine("Nope");
         }
-        Console.WriteLine("Nope");
-    }
 
-    private static void executeSingleObjectAction(Func<long, bool> action, string consoleSuccessOutput) {
-        Console.Write("Enter door id: ");
-        if (long.TryParse(Console.ReadLine(), out long id)) {
-            if (action.Invoke(id)) {
-                Console.WriteLine(consoleSuccessOutput);
-                return;
+        private static void executeSingleObjectAction(Func<long, bool> action, string consoleSuccessOutput) {
+            Console.Write("Enter door id: ");
+            if (long.TryParse(Console.ReadLine(), out long id)) {
+                if (action.Invoke(id)) {
+                    Console.WriteLine(consoleSuccessOutput);
+                    return;
+                }
             }
+            Console.WriteLine("Nope");
         }
-        Console.WriteLine("Nope");
+
+
     }
-
-
-}
 }

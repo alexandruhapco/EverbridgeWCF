@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:50071/DoorService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DoorService.xsd" MetadataType="Schema" ID="cbb780c4-ab24-4a5b-b4b7-b2cbe057870d" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?xsd=xsd0" />
-    <MetadataFile FileName="DoorService.wsdl" MetadataType="Wsdl" ID="442ef494-508f-4e3b-b74b-adc0d477a742" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?wsdl" />
-    <MetadataFile FileName="DoorService1.xsd" MetadataType="Schema" ID="d32f2d29-f044-4647-aa82-170f4b53806a" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?xsd=xsd1" />
     <MetadataFile FileName="DoorService2.xsd" MetadataType="Schema" ID="5e9db52c-8efb-4c93-b445-4efc3bf45d1c" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DoorService.xsd" MetadataType="Schema" ID="cbb780c4-ab24-4a5b-b4b7-b2cbe057870d" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DoorService1.wsdl" MetadataType="Wsdl" ID="d157ac3f-2c63-446e-82a3-af5055270b12" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?wsdl=wsdl0" />
     <MetadataFile FileName="DoorService.disco" MetadataType="Disco" ID="f291dae7-f9b7-49f2-a015-911c73154ff0" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?disco" />
+    <MetadataFile FileName="DoorService1.xsd" MetadataType="Schema" ID="d32f2d29-f044-4647-aa82-170f4b53806a" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DoorService.wsdl" MetadataType="Wsdl" ID="442ef494-508f-4e3b-b74b-adc0d477a742" SourceId="1" SourceUrl="http://localhost:50071/DoorService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

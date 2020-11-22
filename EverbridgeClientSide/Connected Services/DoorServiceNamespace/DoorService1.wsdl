@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://localhost:50071/DoorService.svc" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost:50071/DoorService.svc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://localhost:50071/DoorService.svc/Imports">
+      <xsd:import schemaLocation="http://localhost:50071/DoorService.svc?xsd=xsd0" namespace="http://localhost:50071/DoorService.svc" />
+      <xsd:import schemaLocation="http://localhost:50071/DoorService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50071/DoorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EverbridgeWCF" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDoorService_addNewDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:addNewDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_addNewDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addNewDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_closeDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:closeDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_closeDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:closeDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getAllDoors_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDoors" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getAllDoors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllDoorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_getDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_lockDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:lockDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_lockDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:lockDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_openDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:openDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_openDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:openDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_removeDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_removeDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_unlockDoor_InputMessage">
+    <wsdl:part name="parameters" element="tns:unlockDoor" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_unlockDoor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:unlockDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_updateDoorLabel_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateDoorLabel" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_updateDoorLabel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateDoorLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_clientRegistration_InputMessage">
+    <wsdl:part name="parameters" element="tns:clientRegistration" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_clientRegistration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:clientRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDoorService_notifyUserOnChange_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:notifyUserOnChange" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IDoorService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="addNewDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/addNewDoor" message="tns:IDoorService_addNewDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/addNewDoorResponse" message="tns:IDoorService_addNewDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="closeDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/closeDoor" message="tns:IDoorService_closeDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/closeDoorResponse" message="tns:IDoorService_closeDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getAllDoors">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/getAllDoors" message="tns:IDoorService_getAllDoors_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/getAllDoorsResponse" message="tns:IDoorService_getAllDoors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="getDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/getDoor" message="tns:IDoorService_getDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/getDoorResponse" message="tns:IDoorService_getDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="lockDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/lockDoor" message="tns:IDoorService_lockDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/lockDoorResponse" message="tns:IDoorService_lockDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="openDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/openDoor" message="tns:IDoorService_openDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/openDoorResponse" message="tns:IDoorService_openDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="removeDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/removeDoor" message="tns:IDoorService_removeDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/removeDoorResponse" message="tns:IDoorService_removeDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="unlockDoor">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/unlockDoor" message="tns:IDoorService_unlockDoor_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/unlockDoorResponse" message="tns:IDoorService_unlockDoor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="updateDoorLabel">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/updateDoorLabel" message="tns:IDoorService_updateDoorLabel_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/updateDoorLabelResponse" message="tns:IDoorService_updateDoorLabel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="clientRegistration">
+      <wsdl:input wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/clientRegistration" message="tns:IDoorService_clientRegistration_InputMessage" />
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/clientRegistrationResponse" message="tns:IDoorService_clientRegistration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="notifyUserOnChange">
+      <wsdl:output wsaw:Action="http://localhost:50071/DoorService.svc/IDoorService/notifyUserOnChange" message="tns:IDoorService_notifyUserOnChange_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

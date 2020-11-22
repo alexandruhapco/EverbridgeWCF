@@ -8,19 +8,32 @@ namespace EverbridgeWCF {
     // Service class which implements a duplex service contract.
     // Use an InstanceContextMode of PerSession to store the result
     // An instance of the service will be bound to each duplex session
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant, InstanceContextMode = InstanceContextMode.PerSession)]
     public class DoorService : IDoorService {
         private IDoorDAO doorDAO;
 
-        IDoorNotificationCallback callback = null;
+        List<IDoorNotificationCallback> clientList = new List<IDoorNotificationCallback>();
+
+        IDoorNotificationCallback callback {
+            get {
+                return OperationContext.Current.GetCallbackChannel<IDoorNotificationCallback>();
+            }
+        }
+
+        public void clientRegistration() {
+            if(!clientList.Contains(callback)) {
+                clientList.Add(callback);
+            }
+        }
 
         public DoorService(IDoorDAO doorDAO) {
             this.doorDAO = doorDAO ?? throw new ArgumentNullException(nameof(doorDAO));
-            callback = OperationContext.Current.GetCallbackChannel<IDoorNotificationCallback>();
         }
-        
+
         //Then I would like a list of all the doors at the facility.
-        public List<Door> getAllDoors() {            
+        public List<Door> getAllDoors() {
+            clientList.ForEach(x => x.notifyUserOnChange("MESSSAAAAAAAGEEEE!!!"));
+            //callback.notifyUserOnChange("MESSAGE FROM SERVER");
             return doorDAO.getAll();
         }
 
@@ -41,7 +54,7 @@ namespace EverbridgeWCF {
         //Then I would like to be able to Add a new door
         public bool addNewDoor(string label) {
             try {
-                doorDAO.insert(new Door() { label = label});
+                doorDAO.insert(new Door() { label = label });
                 return true;
             } catch (Exception) {
                 throw;
