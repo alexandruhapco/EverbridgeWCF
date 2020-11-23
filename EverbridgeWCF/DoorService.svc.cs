@@ -55,6 +55,7 @@ namespace EverbridgeWCF {
         public bool addNewDoor(string label) {
             try {
                 doorDAO.insert(new Door() { label = label });
+                clientList.ForEach(x => x.notifyUserOnChange($"{label} was added!"));
                 return true;
             } catch (Exception) {
                 throw;
@@ -65,6 +66,7 @@ namespace EverbridgeWCF {
         public bool removeDoor(long id) {
             try {
                 doorDAO.delete(id);
+                clientList.ForEach(x => x.notifyUserOnChange($"{id} was deleted!"));
                 return true;
             } catch (Exception) {
                 throw;

@@ -9,7 +9,9 @@ using System.Windows.Forms;
 namespace EverbridgeClientSide {
     class CallbackHandler : IDoorServiceCallback {
         public void notifyUserOnChange(string message) {
-            MessageBox.Show(message);
+            Console.SetCursorPosition(0, Console.CursorTop + 1);
+            Console.Write(message);
+            
         }
     }
 
